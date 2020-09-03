@@ -11,14 +11,12 @@ puts "Введите год:"
 year = gets.chomp.to_i
 
 puts "Рузельтат начальный #{result}"
-for i in 0..month - 1
+for i in 0..month - 2
   result += months_days[i]
   
 end
 
-if ((year % 400 == 0) && (year % 100 == 0))
-  result += 1
-elsif (year % 4 == 0)
+if ((year % 400 == 0) && (year % 100 == 0)) || year % 4 == 0
   result += 1
 end
 
