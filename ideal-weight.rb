@@ -2,7 +2,7 @@ puts "Добрый день, как вас зовут?"
 user_name = gets.chomp
 
 puts "#{user_name}, какой у вас вес?"
-weight = gets.chomp.to_i
+weight = gets.chomp.to_f
 
 ideal_weight = (weight - 110) * 1.15
 if ideal_weight <= 0
