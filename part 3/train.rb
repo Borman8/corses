@@ -7,6 +7,7 @@ class Train
     @type = type
     @van = van
 
+    
     @speed = 0
   end
 #Набор скорости 
@@ -19,11 +20,12 @@ class Train
   end
 #Добавление вагона
   def add_van
-    @van = van + n if self.speed == 0
+    @n = 1
+    @van = van + @n if @speed.zero?
   end
 # Отцепка вагона 
   def remove_van
-    @van = van - n if self.speed == 0
+    @van = van - @n if @speed.zero?
   end
 # Получение маршрута и назначение поезда в первый пунтк
   def get_route(route)
@@ -32,37 +34,37 @@ class Train
   end
 
   def current_location
-    route.station[@index]
+    route.stations[@index]
   end
 
     def next_location
-    route.station[@index + 1]
+    route.stations[@index + 1]
   end
 
   def previous_location
-    if route.station.first == route.station[@index]
+    if route.start_point == route.stations[@index]
       puts "Тупиковая станция"
     else
-      route.station[@index -1]
+      route.stations[@index -1]
     end
   end
 
   def go_forward
-    count_station = route.station.size
+    count_station = route.stations.size
     puts count_station
     if @index == count_station
       puts "Тупиковая станция"
     else
-      route.station[@index + 1]
+      route.stations[@index + 1]
       @index +=1
     end
   end
 
   def go_back
-    if route.station.first == route.station[@index]
+    if route.start_point == route.stations[@index]
       puts "Тупиковая станция"
     else
-      route.station[@index - 1]
+      route.stations[@index - 1]
       @index -=1      
     end
   end

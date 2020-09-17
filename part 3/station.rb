@@ -1,23 +1,23 @@
 class Station
   attr_accessor :list_trains
 
-  attr_reader   :name_station
+  attr_reader   :name
 
-  def initialize(name_station)
-    @name_station = name_station
-    @list_trains = []
+  def initialize(name)
+    @name = name
+    @trains = []
   end
 #добовляевм поез на станцию
   def add_train_to_list(train)
-    @list_trains.push(train)
+    @trains.push(train)
   end
-#улаляем поезд со станции поез на станцию
+#улаляем поезд со станции поезд на станцию
   def remove_train_from_list(train)
-    @list_trains.delete(train)
+    @trains.delete(train)
   end
-# показываем список всех поездов на станци
+# показываем список всех поездов на станции
   def show_all_trains_on_station
-    puts "#{list_trains.size} поезд(ов) на станции."
-    list_trains.each { |train| puts "Поезд ноер: #{train.number}, тип поезда: #{train.type}, количество вагонов: #{train.van}"  }
+    puts "#{trains.size} поезд(ов) на станции."
+    trains.each { |train| puts "Поезд номер: #{train.number}, тип поезда: #{train.type}, количество вагонов: #{train.van}"  }
   end
 end 
