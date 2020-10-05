@@ -1,15 +1,15 @@
 class CargoTrain < Train
 
-  attr_accessor :vans, :type_train
+  attr_accessor :vans, :kind
 
   def initialize(number, vans)
-    @type_train = 'грузовой'
+    @train = 'грузовой'
     super
   end
 
   def push_van(van)
-    if self.type_train == van.type_van
-      @vans = van.type_van
+    if self.train == van.kind
+      @vans = van.kind
     else 
       puts "Тип вагона и поезда разные"
     end

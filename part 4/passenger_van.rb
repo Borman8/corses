@@ -1,9 +1,9 @@
 class PassengerVan < Van
 
-  attr_accessor :type_van
+  attr_accessor :kind
 
   def initialize
-    @type_van = 'пассажирский'
+    @kind = 'пассажирский'
   end
 
 

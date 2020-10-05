@@ -1,8 +1,8 @@
 class Train
   attr_accessor :speed
 
-  attr_reader :number, :vans, :route, :start_point
-  def initialize(number, vans)
+  attr_reader :number, :route, :start_point
+  def initialize(number)
     @number = number
     #@type = type
     @vans = vans
@@ -67,14 +67,5 @@ class Train
       route.stations[@index - 1]
       @index -=1      
     end
-  end
-
-  def on_last_station?
-    @current_location_index = 0
-    @current_location_index == @route.size - 1
-  end
-
-    def on_first_station?
-    @current_location_index == 0    
   end
 end 
