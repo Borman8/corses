@@ -7,7 +7,7 @@ class Train
   attr_accessor :speed
 
 
-  @trains_list = []
+  @@trains_list = {}
   attr_reader :number, :route, :start_point
 
   def initialize(number)
@@ -15,20 +15,16 @@ class Train
     #@type = type
     #@vans = vans    
     @speed = 0
-    self.class.train_list<< self
+    @@trains_list[number] = self
     register_instance
   end
 
-  def self.train_list
-    @trains_list
+  def self.trains_list
+    @@trains_list
   end
 
-  def self.find(item)
-    @trains_list.each do |single|
-      if single.number == item
-        puts single
-      end
-    end
+  def self.find(number)
+    @@trains_list[number]
   end
 #Набор скорости 
   def up_speed(speed)
