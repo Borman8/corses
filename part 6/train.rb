@@ -89,6 +89,8 @@ class Train
   protected
 
   def validation!
+    raise "Number can't be nil" if number.nil?
+    raise "Number must be more then 5 symbols" if number.length < 5
     raise "Number has invalid format" if number !~ VALID_NUMBER
   end
 
@@ -98,12 +100,3 @@ class Train
     false
   end
 end 
-
-begin
-  @attempt = 0
-  initialize
-rescue RuntimeError
-  attempt += 1
-  retry if @attempt < 3
-  puts "repeate please!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-end

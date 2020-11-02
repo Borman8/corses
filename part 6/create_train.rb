@@ -167,6 +167,13 @@ class RailRoad
       else
         puts 'Команды нет в списке'
     end
+    begin
+      @attempt = 0
+    rescue RuntimeError
+      attempt += 1
+      retry if @attempt < 3
+      puts "repeate please!"
+    end
   end
 
   def change_element
@@ -336,12 +343,3 @@ end
 
 menu = RailRoad.new
 menu.start
-
-begin
-  @attempt = 0
-  create_element
-rescue RuntimeError
-  attempt += 1
-  retry if @attempt < 3
-  puts "repeate please!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-end
