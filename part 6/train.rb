@@ -88,9 +88,22 @@ class Train
 
   protected
 
+  def validation!
+    raise "Number has invalid format" if number !~ VALID_NUMBER
+  end
+
   def valid?
     validation!
   rescue
     false
   end
 end 
+
+begin
+  @attempt = 0
+  initialize
+rescue RuntimeError
+  attempt += 1
+  retry if @attempt < 3
+  puts "repeate please!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+end
