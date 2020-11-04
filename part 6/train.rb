@@ -6,7 +6,7 @@ class Train
 
   attr_accessor :speed
 
-  VALID_NUMBER = /^.{3}\W.{2}/
+  VALID_NUMBER = /^.{3}\S.{2}/
 
   @@trains_list = {}
   attr_reader :number, :route, :start_point
@@ -92,11 +92,5 @@ class Train
     raise "Number can't be nil" if number.nil?
     raise "Number must be more then 5 symbols" if number.length < 5
     raise "Number has invalid format" if number !~ VALID_NUMBER
-  end
-
-  def valid?
-    validation!
-  rescue
-    false
   end
 end 

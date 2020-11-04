@@ -23,5 +23,11 @@ module InstanceCounter
     def register_instance
       self.class.instances += 1
     end
+    
+    def valid?
+      validation!
+    rescue
+      false
+    end
   end
 end
